@@ -19,3 +19,11 @@ Por exemplo, caso queira ordenar um arquivo com 1000 números utilizando o algor
 ```
 python sort.py -f instancias-num/num.1000.1.in -i
 ```
+- Funções T(n) do Insertion Sort:
+
+  Para o melhor caso (lista ordenada), o algoritmo precisa passar por cada elemento uma vez com exceção do primeiro. Então, t(n) = n - 1.
+
+  Para o pior caso (lista invertida), o algoritmo precisa percorrer a lista novamente para cada elemento dela. Logo, t(n) = n*n
+  
+- Funções T(n) do Selection Sort:
+  O algoritmo busca sempre encontrar o valor mínimo (ou máximo) da lista e colocá-lo em uma outra ordenada. Dessa forma, ele sempre vai percorrer a lista para cada elemento, mas a quantidade de elementos na lista original vai reduzindo a medida que irá sendo ordenado. Dessa forma, T(n) = n * (n-1)/2.
