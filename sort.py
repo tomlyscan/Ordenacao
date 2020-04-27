@@ -23,6 +23,8 @@ elif(results.sort_method == 'insertion'):
     res = bib.insertion_sort(arr[1:])
 elif(results.sort_method == 'merge'):
     res = bib.merge_sort(arr[1:])
+elif(results.sort_method == 'quick'):
+    res = bib.quickSort(arr[1:], 0, len(arr)-1)
 
 for i in range(len(res)):
     print(res[i])
