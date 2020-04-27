@@ -7,6 +7,8 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-f', action='store', dest='list_integers', help='Arquivo com os números a serem ordenados')
 parser.add_argument('-s', action='store_const', dest='sort_method', const='selection', help='Algoritmo selection sort selecionado')
 parser.add_argument('-i', action='store_const', dest='sort_method', const='insertion', help='Algoritmo insertion sort selecionado')
+parser.add_argument('-q', action='store_const', dest='sort_method', const='quick', help='Algoritmo quick sort selecionado')
+parser.add_argument('-m', action='store_const', dest='sort_method', const='merge', help='Algoritmo merge sort selecionado')
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 results = parser.parse_args()
@@ -16,9 +18,11 @@ arr = data.to_numpy().ravel()
 res = []
 
 if(results.sort_method == 'selection'):
-    res = bib.selection_sort(arr)
+    res = bib.selection_sort(arr[1:])
 elif(results.sort_method == 'insertion'):
-    res = bib.insertion_sort(arr)
+    res = bib.insertion_sort(arr[1:])
+elif(results.sort_method == 'merge'):
+    res = bib.merge_sort(arr[1:])
 
 for i in range(len(res)):
     print(res[i])
