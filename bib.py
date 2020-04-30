@@ -83,3 +83,28 @@ def quickSort(arr,low,high):
         quickSort(arr, pi+1, high) 
     return arr
 
+def counting_sort(a):
+    ordenada = []
+    contador = max(a) + abs(min(a)) + 1
+    pos_zero = abs(min(a))
+    lista_contador = [0]*contador
+    for i in range(len(a)):
+        if a[i] == 0:
+            lista_contador[pos_zero] += 1
+        else:
+            lista_contador[pos_zero + a[i]] += 1
+    for i in range(len(lista_contador)):
+        if lista_contador[i] > 0:
+            for j in range(lista_contador[i]):
+                if i == pos_zero:
+                    ordenada += [0]
+                else:
+                    ordenada += [i - pos_zero]
+    return ordenada
+
+def radix_sort(arr):
+    pass
+
+def bucket_sort(arr):
+    pass
+
