@@ -102,8 +102,53 @@ def counting_sort(a):
                     ordenada += [i - pos_zero]
     return ordenada
 
-def radix_sort(arr):
-    pass
+def number_to_list(num):
+    negative = False
+    res = []
+    for x in str(num):
+        if x == '-':
+            negative = True
+            continue
+        if negative == True:
+            res += [int(x)*-1]
+            negative = False
+            continue
+        res += [int(x)]
+    return res
+
+def largest_digit_number(a):
+    menor = abs(min(a))
+    maior = abs(max(a))
+    digitos_menor = int(math.log10(menor)) +1
+    digitos_maior = int(math.log10(maior)) +1
+    return digitos_maior if digitos_maior > digitos_menor else digitos_menor
+
+def list_to_row(num, largest_digit_number, index=1 ):
+    list = number_to_list(num)
+    for x in range(0, (largest_digit_number+1) - len(list)):
+        list = [0] + list
+    list[0] = index
+    return list
+
+def list_to_matrix(a):
+    matrix = []
+    largest = largest_digit_number(a)
+    for i in range(len(a)):
+        matrix += [list_to_row(a[i], largest, i )]
+    return matrix
+
+def sorted_matrix(a):
+    arr2D = np.array(list_to_matrix(a))
+    for i in range(1, largest_digit_number(a)+1):
+        arr2D = arr2D[arr2D[:, -i].argsort()]
+    return arr2D
+
+def radix_sort(a):
+    sorted_list = []
+    radix_matrix = sorted_matrix(a)
+    for i in range(len(radix_matrix)):
+        sorted_list += [a[radix_matrix[i][0]]]
+    return sorted_list
 
 def bucket_sort(arr):
     pass
