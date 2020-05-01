@@ -4,13 +4,18 @@ Nesse repositório, encontram-se implementados os algoritmos de ordenação Inse
 
 ```
 python sort.py -h
-usage: sort.py [-h] [-f LIST_INTEGERS] [-s] [-i] [--version]
+usage: sort.py [-h] [-f LIST_INTEGERS] [-s] [-i] [-q] [-m] [-c] [-b] [-r] [--version]
 
 optional arguments:
   -h, --help        show this help message and exit
   -f LIST_INTEGERS  Arquivo com os números a serem ordenados
   -s                Algoritmo selection sort selecionado
   -i                Algoritmo insertion sort selecionado
+  -q                Algoritmo quick sort selecionado
+  -m                Algoritmo merge sort selecionado
+  -c                Algoritmo count sort selecionado
+  -b                Algoritmo bucket sort selecionado
+  -r                Algoritmo radix sort selecionado
   --version         show program's version number and exit
 ```
 
