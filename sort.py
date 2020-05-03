@@ -29,6 +29,8 @@ elif(results.sort_method == 'count'):
     res = bib.counting_sort(arr[1:])
 elif(results.sort_method == 'radix'):
     res = bib.radix_sort(arr[1:])
+elif(results.sort_method == 'bucket'):
+    res = bib.bucket_sort(arr[1:])
 #elif(results.sort_method == 'merge'):
 #    res = bib.merge_sort(arr[1:])
 #elif(results.sort_method == 'quick'):

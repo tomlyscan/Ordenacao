@@ -150,6 +150,31 @@ def radix_sort(a):
         sorted_list += [a[radix_matrix[i][0]]]
     return sorted_list
 
-def bucket_sort(arr):
-    pass
+def bucket_sort(a):
+    bucket_length = 10
+    bucket_positive = [[]]*bucket_length
+    bucket_negative = [[]]*bucket_length
+    ldn = largest_digit_number(a)
+    num = 0.0
+    res = []
+    for i in range(len(a)):
+        num = a[i]/math.pow(bucket_length,ldn-1)
+        if num < 0:
+            if not bucket_negative[int(abs(num))]:
+                bucket_negative[int(abs(num))] = [a[i]]
+            else: 
+                bucket_negative[int(abs(num))] += [a[i]] 
+        else:
+            if not bucket_positive[int(abs(num))]:
+                bucket_positive[int(abs(num))] = [a[i]]
+            else: 
+                bucket_positive[int(abs(num))] += [a[i]]
+    for i in range(bucket_length):
+        if bucket_negative[i]:
+            bucket_negative[i] = counting_sort(bucket_negative[i])
+        if bucket_positive[i]:
+            bucket_positive[i] = counting_sort(bucket_positive[i])
+    bucket_negative.reverse() 
+    res = sum(bucket_negative, []) + sum(bucket_positive, [])
+    return res
 
