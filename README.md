@@ -4,7 +4,7 @@ Nesse repositório, encontram-se implementados os algoritmos de ordenação Inse
 
 ```
 python sort.py -h
-usage: sort.py [-h] [-f LIST_INTEGERS] [-s] [-i] [-q] [-m] [-c] [-b] [-r] [--version]
+usage: sort.py [-h] [-f LIST_INTEGERS] [-s] [-i] [-q] [-m] [-c] [-b] [-r] [-mhp] [-hp] [--version]
 
 optional arguments:
   -h, --help        show this help message and exit
@@ -16,6 +16,8 @@ optional arguments:
   -c                Algoritmo count sort selecionado
   -b                Algoritmo bucket sort selecionado
   -r                Algoritmo radix sort selecionado
+  -mhp              Algoritmo heap máximo selecionado
+  -hp               Algoritmo heap sort selecionado
   --version         show program's version number and exit
 ```
 
