@@ -226,3 +226,47 @@ def radixSort(arr):
         exp *= 10
     return arr
 
+
+def parent(i):
+    if i % 2 == 0:
+        return (i // 2) - 1
+    return i // 2
+
+
+def left(i):
+    return 2 * i + 1
+
+
+def right(i):
+    return 2 * i + 2
+
+
+def max_heapify(A, tamanho_heap, i):
+    maior = 0
+    l = left(i)
+    r = right(i)
+
+    if l < tamanho_heap and A[l] > A[i]:
+        maior = l
+    else:
+        maior = i
+
+    if r < tamanho_heap and A[r] > A[maior]:
+        maior = r
+
+    if maior != i:
+        A[i], A[maior] = A[maior], A[i]
+        max_heapify(A, tamanho_heap, maior)
+
+
+def build_max_heap(A):
+    for i in range(len(A) // 2 - 1, -1, -1):
+        max_heapify(A, len(A), i)
+    return A
+
+def heap_sort(A):
+    build_max_heap(A)
+    for i in range(len(A)-1, 0, -1):
+        A[i], A[0] = A[0], A[i]
+        max_heapify(A, i, 0)
+    return A

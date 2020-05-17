@@ -1,5 +1,7 @@
-import pandas as pd
 import argparse
+
+import pandas as pd
+
 import bib
 
 parser = argparse.ArgumentParser()
@@ -12,6 +14,8 @@ parser.add_argument('-m', action='store_const', dest='sort_method', const='merge
 parser.add_argument('-c', action='store_const', dest='sort_method', const='count', help='Algoritmo count sort selecionado')
 parser.add_argument('-b', action='store_const', dest='sort_method', const='bucket', help='Algoritmo bucket sort selecionado')
 parser.add_argument('-r', action='store_const', dest='sort_method', const='radix', help='Algoritmo radix sort selecionado')
+parser.add_argument('-mhp', action='store_const', dest='sort_method', const='max_heap', help='Algoritmo heap máximo selecionado')
+parser.add_argument('-hp', action='store_const', dest='sort_method', const='heap', help='Algoritmo heap sort selecionado')
 
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
@@ -35,6 +39,12 @@ elif(results.sort_method == 'bucket'):
 #    res = bib.merge_sort(arr[1:])
 #elif(results.sort_method == 'quick'):
 #    res = bib.quickSort(arr[1:], 0, len(arr)-1)
+
+elif results.sort_method == 'max_heap':
+    res = bib.build_max_heap(arr[1:])
+
+elif results.sort_method == 'heap':
+    res = bib.heap_sort(arr[1:])
 
 for i in range(len(res)):
     print(res[i])
